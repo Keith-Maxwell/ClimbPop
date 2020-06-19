@@ -13,8 +13,8 @@ def getFillPercent(URL: str) -> int:
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    tag = soup.find_all(attrs={"class": "jauge"})[0].p
-    percent = tag['data-value']
+    tag = soup.find_all("progress")[0]
+    percent = tag['value']
     return int(percent)
 
 
